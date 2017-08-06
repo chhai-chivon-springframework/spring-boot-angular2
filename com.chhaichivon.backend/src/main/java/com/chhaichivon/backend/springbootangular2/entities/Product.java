@@ -1,4 +1,4 @@
-package com.chhaichivon.backend.springbootangular2.models;
+package com.chhaichivon.backend.springbootangular2.entities;
 
 /**
  * AUTHOR : CHHAI CHIVON

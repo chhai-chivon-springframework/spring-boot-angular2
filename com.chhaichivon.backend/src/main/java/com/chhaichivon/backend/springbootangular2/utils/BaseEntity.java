@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 /**
@@ -14,7 +15,8 @@ import java.io.Serializable;
  * TIME   : 7:44 PM
  */
 @Data
-public abstract class BaseModels  implements Serializable{
+@MappedSuperclass
+public abstract class BaseEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;

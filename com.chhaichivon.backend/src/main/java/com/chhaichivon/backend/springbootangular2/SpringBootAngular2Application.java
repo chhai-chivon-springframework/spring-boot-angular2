@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan(basePackages = "com.chhaichivon.backend.springbootangular2.models")
+@EntityScan(basePackages = "com.chhaichivon.backend.springbootangular2.entities")
 @EnableJpaRepositories(basePackages = "com.chhaichivon.backend.springbootangular2.repositoties")
 public class SpringBootAngular2Application {
 

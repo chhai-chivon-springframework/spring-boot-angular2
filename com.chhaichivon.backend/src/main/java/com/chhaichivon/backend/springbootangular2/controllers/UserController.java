@@ -1,10 +1,10 @@
 package com.chhaichivon.backend.springbootangular2.controllers;
 
-import com.chhaichivon.backend.springbootangular2.models.User;
+import com.chhaichivon.backend.springbootangular2.entities.User;
 import com.chhaichivon.backend.springbootangular2.services.UserService;
 import com.chhaichivon.backend.springbootangular2.utils.BaseController;
-import com.chhaichivon.backend.springbootangular2.utils.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ import java.util.Map;
  */
 
 @RestController
-@RequestMapping(value = "/api/")
+@RequestMapping(value = "/api")
 public class UserController extends BaseController<User>{
 
 	@Autowired
@@ -47,7 +47,7 @@ public class UserController extends BaseController<User>{
 		return responseJson(products);
 	}*/
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET, headers = "Accept=Application/json")
+	@RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Map<String, Object>> findAll(){
 		map = new HashMap<>();
 		List<User> users = null;
@@ -55,8 +55,9 @@ public class UserController extends BaseController<User>{
 			users = (List<User>) userService.findAll();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.print("Error" + e.getMessage());
 		}
-		return responseJson(users);
+		return responseJson(users, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -68,19 +69,19 @@ public class UserController extends BaseController<User>{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return responseJson(user);
+		return responseJson(user,HttpStatus.OK);
 	}
 
 
-	@RequestMapping(value = "/users", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Map<String, Object>> save(@Valid User user) {
+	@RequestMapping(value = "/users", method = RequestMethod.POST, headers = "Accept=Application/json")
+	public ResponseEntity<Map<String, Object>> save(@RequestBody User user) {
 		map = new HashMap<>();
 		try {
 			userService.save(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return responseJson(user);
+		return responseJson(user,HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -94,6 +95,6 @@ public class UserController extends BaseController<User>{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return responseJson(user);
+		return responseJson(user, HttpStatus.OK);
 	}
 }

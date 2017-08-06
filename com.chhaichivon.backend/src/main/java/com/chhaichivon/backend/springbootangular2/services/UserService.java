@@ -1,6 +1,6 @@
 package com.chhaichivon.backend.springbootangular2.services;
 
-import com.chhaichivon.backend.springbootangular2.models.User;
+import com.chhaichivon.backend.springbootangular2.entities.User;
 import com.chhaichivon.backend.springbootangular2.repositoties.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

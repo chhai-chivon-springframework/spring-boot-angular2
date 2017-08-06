@@ -30,21 +30,21 @@ public class BaseController<T> {
 		return map;
 	}
 
-	public ResponseEntity<Map<String, Object>> responseJson(T object) {
+	public ResponseEntity<Map<String, Object>> responseJson(T object, HttpStatus httpStatus) {
 		if (object != null) {
 			map = mapJson(object, HttpStatus.OK, MESSAGE_SUCCESS);
 		} else {
 			map = mapJson(null, HttpStatus.NOT_FOUND, MESSAGE_FAILURE);
 		}
-		return new ResponseEntity<>(map, HttpStatus.OK);
+		return new ResponseEntity<>(map, httpStatus);
 	}
 
-	public ResponseEntity<Map<String, Object>> responseJson(List<T> objects) {
+	public ResponseEntity<Map<String, Object>> responseJson(List<T> objects,HttpStatus httpStatus) {
 		if (!objects.isEmpty()) {
 			map = mapJson((T) objects, HttpStatus.OK, MESSAGE_SUCCESS);
 		} else {
 			map = mapJson(null, HttpStatus.NOT_FOUND, MESSAGE_FAILURE);
 		}
-		return new ResponseEntity<>(map, HttpStatus.OK);
+		return new ResponseEntity<>(map, httpStatus);
 	}
 }
