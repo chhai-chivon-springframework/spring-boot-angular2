@@ -24,7 +24,6 @@ import java.util.*;
 public class Role extends BaseEntity {
 
 	@Column(name = "name")
-	@JsonProperty("NAME")
 	private String name;
 
 	@ManyToMany

@@ -12,22 +12,16 @@ import javax.persistence.Table;
 /**
  * AUTHOR : CHHAI CHIVON
  * EMAIL  : chhaichivon1995@gmail.com
- * DATE   : 8/5/2017
- * TIME   : 7:41 PM
+ * DATE   : 8/7/2017
+ * TIME   : 3:43 PM
  */
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_product")
-public class Product extends BaseEntity{
-    @Column(name = "product_name")
-    private String ProductName;
-    @Column(name = "price")
-    private String price;
-    @Column(name = "image_url")
-    private String imageUrl;
-    @Column(name = "description")
-    private String description;
+@Table(name = "tb_category")
+public class Category extends BaseEntity{
 
+    @Column(name = "category_name")
+    private String categoryName;
 }
