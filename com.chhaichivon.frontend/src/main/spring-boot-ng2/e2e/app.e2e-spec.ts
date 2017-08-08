@@ -1,14 +1,14 @@
-import { SpringBootAngular2Page } from './app.po';
+import { CoreUIPage } from './app.po';
 
-describe('spring-boot-angular2 App', () => {
-  let page: SpringBootAngular2Page;
+describe('core-ui App', function() {
+  let page: CoreUIPage;
 
   beforeEach(() => {
-    page = new SpringBootAngular2Page();
+    page = new CoreUIPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
