@@ -9,7 +9,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 8080",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -53,5 +53,10 @@
     "ts-node": "2.1.0",
     "tslint": "4.5.1",
     "typescript": "2.2.1"
+  },
+  "defaults": {
+    "serve": {
+      "port": 8080
+    }
   }
 }

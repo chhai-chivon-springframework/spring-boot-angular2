@@ -1,6 +1,7 @@
 package com.chhaichivon.backend.springbootangular2.configurations;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import java.io.IOException;
  * TIME   : 7:58 PM
  */
 @Component
+@CrossOrigin(value = "*")
 public class CORSFilter implements Filter {
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
