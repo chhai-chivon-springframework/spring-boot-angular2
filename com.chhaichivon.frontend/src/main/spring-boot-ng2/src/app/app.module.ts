@@ -18,6 +18,8 @@ import { AppRoutingModule } from './app.routing';
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
+import { UsersComponent } from './users/users.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -35,6 +37,8 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
+    UsersComponent,
+    HomeComponent,
   ],
   providers: [{
     provide: LocationStrategy,

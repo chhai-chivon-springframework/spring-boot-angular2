@@ -4,8 +4,21 @@ import { Routes, RouterModule } from '@angular/router';
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
-
+import { UsersComponent } from './users/users.component';
+import { HomeComponent } from './home/home.component';
 export const routes: Routes = [
+  {
+    path: 'index',
+    redirectTo: 'index',
+    component : HomeComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'user',
+    redirectTo: 'user',
+    component:UsersComponent,
+    pathMatch: 'full',
+  },
   {
     path: '',
     redirectTo: 'dashboard',
@@ -36,6 +49,10 @@ export const routes: Routes = [
       },
       {
         path: 'charts',
+        loadChildren: './chartjs/chartjs.module#ChartJSModule'
+      },
+      {
+        path: 'user',
         loadChildren: './chartjs/chartjs.module#ChartJSModule'
       }
     ]
