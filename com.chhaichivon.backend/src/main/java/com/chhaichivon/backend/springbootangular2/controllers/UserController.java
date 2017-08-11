@@ -1,6 +1,6 @@
 package com.chhaichivon.backend.springbootangular2.controllers;
 
-import com.chhaichivon.backend.springbootangular2.entities.User;
+import com.chhaichivon.backend.springbootangular2.models.User;
 import com.chhaichivon.backend.springbootangular2.services.UserService;
 import com.chhaichivon.backend.springbootangular2.utils.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,6 @@
-package com.chhaichivon.backend.springbootangular2.entities;
+package com.chhaichivon.backend.springbootangular2.models;
 
 import com.chhaichivon.backend.springbootangular2.utils.BaseEntity;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

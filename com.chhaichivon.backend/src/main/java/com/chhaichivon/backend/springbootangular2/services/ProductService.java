@@ -1,6 +1,6 @@
 package com.chhaichivon.backend.springbootangular2.services;
 
-import com.chhaichivon.backend.springbootangular2.entities.Product;
+import com.chhaichivon.backend.springbootangular2.models.Product;
 import com.chhaichivon.backend.springbootangular2.repositoties.ProductRepository;
 import com.chhaichivon.backend.springbootangular2.utils.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;

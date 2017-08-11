@@ -1,6 +1,6 @@
 package com.chhaichivon.backend.springbootangular2.repositoties;
 
-import com.chhaichivon.backend.springbootangular2.entities.Product;
+import com.chhaichivon.backend.springbootangular2.models.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

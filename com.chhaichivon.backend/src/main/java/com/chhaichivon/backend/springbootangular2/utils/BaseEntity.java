@@ -1,5 +1,6 @@
 package com.chhaichivon.backend.springbootangular2.utils;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
@@ -19,5 +20,7 @@ import java.io.Serializable;
 public abstract class BaseEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonProperty("ID")
 	private long id;
+
 }

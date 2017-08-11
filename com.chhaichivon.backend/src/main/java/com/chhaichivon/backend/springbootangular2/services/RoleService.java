@@ -1,6 +1,6 @@
 package com.chhaichivon.backend.springbootangular2.services;
 
-import com.chhaichivon.backend.springbootangular2.entities.Role;
+import com.chhaichivon.backend.springbootangular2.models.Role;
 import com.chhaichivon.backend.springbootangular2.repositoties.RoleRepository;
 import com.chhaichivon.backend.springbootangular2.utils.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;

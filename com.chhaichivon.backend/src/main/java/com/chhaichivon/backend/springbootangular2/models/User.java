@@ -1,4 +1,4 @@
-package com.chhaichivon.backend.springbootangular2.entities;
+package com.chhaichivon.backend.springbootangular2.models;
 
 import com.chhaichivon.backend.springbootangular2.utils.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,15 +25,19 @@ import java.util.Set;
 public class User extends BaseEntity{
 
 	@Column(name = "name")
+	@JsonProperty("NAME")
 	private String name;
 
 	@Column(name = "email")
+	@JsonProperty("EMAIL")
 	private String email;
 
 	@Column(name = "password")
+	@JsonProperty("PASSWORD")
 	private String password;
 
 	@Column(name = "mobile")
+	@JsonProperty("MOBILE")
 	private String mobile;
 
 	@ManyToMany(cascade = CascadeType.ALL)
