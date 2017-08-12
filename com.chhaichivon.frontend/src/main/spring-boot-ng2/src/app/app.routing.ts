@@ -9,14 +9,7 @@ import { HomeComponent } from './home/home.component';
 export const routes: Routes = [
   {
     path: 'index',
-    redirectTo: 'index',
     component : HomeComponent,
-    pathMatch: 'full',
-  },
-  {
-    path: 'user',
-    redirectTo: 'user',
-    component:UsersComponent,
     pathMatch: 'full',
   },
   {
