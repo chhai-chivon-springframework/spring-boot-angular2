@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.chhaichivon.parent</groupId>
-	<artifactId>spring-boot-angular2</artifactId>
+	<artifactId>parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>spring-boot-angular2.parent</name>
+	<name>parent</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -18,11 +18,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-
-	 <modules>
-        <module>com.chhaichivon.backend</module>
-        <module>com.chhaichivon.frontend</module>
-    </modules>
+	<modules>
+		<module>frontend</module>
+		<module>backend</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
