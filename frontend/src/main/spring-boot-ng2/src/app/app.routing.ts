@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 import { UsersComponent } from './users/users.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
+
 export const routes: Routes = [
   {
     path: 'index',
-    component : HomeComponent,
-    pathMatch: 'full',
+    component : HomeComponent
   },
   {
     path: '',
