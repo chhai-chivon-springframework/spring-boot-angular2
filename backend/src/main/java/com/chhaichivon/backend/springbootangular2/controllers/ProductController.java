@@ -4,6 +4,7 @@ import com.chhaichivon.backend.springbootangular2.models.Product;
 import com.chhaichivon.backend.springbootangular2.services.ProductService;
 import com.chhaichivon.backend.springbootangular2.utils.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,21 +31,20 @@ public class ProductController extends BaseController<Product> {
     private ProductService productService;
     public Map<String, Object> map;
 
-    /*@RequestMapping(value = "/products", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/products", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Map<String, Object>> findAll(
             @RequestParam(value = "page", required = false, defaultValue = "0") int page,
             @RequestParam(value = "limit", required = false, defaultValue = "15") int limit
     ){
-        map = new HashMap<>();
-        List<Product> products= null;
+        Page<Product> products= null;
         try {
-            products = (List<Product>) productService.findAll(new PageRequest(page,limit));
+            products =  productService.findAll(new PageRequest(page,limit));
         } catch (Exception e) {
             e.printStackTrace();
             System.out.print("Error" + e.getMessage());
         }
         return responseJson(products, HttpStatus.OK);
-    }*/
+    }
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Map<String, Object>> findById(@PathVariable("id") Long id) {

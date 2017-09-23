@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>backend</name>
-    <description>The ng2boot frontend project</description>
+    <description>The ng2boot backend project</description>
     <parent>
         <groupId>com.chhaichivon.parent</groupId>
         <artifactId>parent</artifactId>

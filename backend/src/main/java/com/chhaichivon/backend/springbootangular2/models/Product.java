@@ -24,7 +24,7 @@ import javax.persistence.Table;
 public class Product extends BaseEntity{
     @Column(name = "product_name")
     @JsonProperty("PRODUCT_NAME")
-    private String ProductName;
+    private String productName;
     @Column(name = "price")
     @JsonProperty("PRICE")
     private String price;

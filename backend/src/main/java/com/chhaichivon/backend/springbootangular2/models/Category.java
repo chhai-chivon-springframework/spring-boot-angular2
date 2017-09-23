@@ -1,5 +1,6 @@
 package com.chhaichivon.backend.springbootangular2.models;
 
+import com.chhaichivon.backend.springbootangular2.utils.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,26 +22,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_category")
-public class Category implements Serializable{
+public class Category extends BaseEntity{
 
-    @Id
-    @SequenceGenerator(allocationSize=1, initialValue=2, sequenceName="category_cat_id_seq", name="cat_id")
-    @GeneratedValue(generator="cat_id", strategy=GenerationType.SEQUENCE)
-    @Column(name="cat_id")
-    @JsonProperty("ID")
-    private  long id;
-
-    @Column(name = "cat_name")
-    @JsonProperty("NAME")
-    private String name;
-
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="parent")
-    @JsonProperty("PARENT")
-    private Category parentCategory;
-
-    @OneToMany(mappedBy = "parentCategory")
-    private List<Category> childCategories = new ArrayList<>();
+    @Column(name = "category_name")
+    @JsonProperty("CATEGORY_NAME")
+    private String categoryName;
 
     @Column(name = "description")
     @JsonProperty("DESCRIPTION")

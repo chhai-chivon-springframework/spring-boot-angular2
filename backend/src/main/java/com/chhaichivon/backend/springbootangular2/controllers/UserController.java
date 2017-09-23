@@ -4,13 +4,15 @@ import com.chhaichivon.backend.springbootangular2.models.User;
 import com.chhaichivon.backend.springbootangular2.services.UserService;
 import com.chhaichivon.backend.springbootangular2.utils.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,35 +30,18 @@ public class UserController extends BaseController<User>{
 	private UserService  userService;
 	public Map<String, Object> map;
 
-	/*@RequestMapping(value = "/products", method = RequestMethod.GET, headers = "Accept=Application/json")
+	@RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Map<String, Object>> getAllProduct(
-			@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+			@RequestParam(value = "page", required = false, defaultValue = "0") int page,
 			@RequestParam(value = "limit", required = false, defaultValue = "15") int limit
 	) {
-		map = new HashMap<>();
-		Pagination pagination = new Pagination();
-		pagination.setPage(page);
-		pagination.setLimit(limit);
-		List<User> products = null;
+		Page<User> products = null;
 		try {
-			products = userService.findAll(pagination);
+			products = userService.findAll(new PageRequest(page,limit));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return responseJson(products);
-	}*/
-
-	@RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Map<String, Object>> findAll(){
-		map = new HashMap<>();
-		List<User> users = null;
-		try {
-			users = (List<User>) userService.findAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.print("Error" + e.getMessage());
-		}
-		return responseJson(users, HttpStatus.OK);
+		return responseJson(products, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -72,7 +57,8 @@ public class UserController extends BaseController<User>{
 	}
 
 
-	@RequestMapping(value = "/users", method = RequestMethod.POST, headers = "Accept=Application/json")
+	@RequestMapping(value = "/users", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+
 	public ResponseEntity<Map<String, Object>> save(@RequestBody User user) {
 		map = new HashMap<>();
 		try {
