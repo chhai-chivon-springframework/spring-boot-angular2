@@ -1,6 +1,43 @@
-
 <div class="container">
   <h2>CRUD</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="product" novalidate class="was-validated">
+        <div class="form-group has-error">
+          <label>Product Name:</label>
+          <input type="text" class="form-control"
+                 formControlName="productName">
+          <span *ngIf="!formControlHasError('productName')" class="glyphicon glyphicon-remove invalid-feedback">
+            {{ formControlGetError('productName') }}
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Price:</label>
+          <input type="text" class="form-control"
+                 formControlName="price">
+        </div>
+        <div class="form-group">
+          <label>Image:</label>
+          <input type="text" class="form-control"
+                 formControlName="imageUrl">
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <input type="text" class="form-control"
+                 formControlName="description">
+        </div>
+        <button type="button" (click)="saveFormProduct()" class="btn btn-primary">{{ btnSubmit }}</button>
+        <button type="button" (click)="resetFormProduct()" class="btn btn-primary">Clear</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <pre>{{ product.value | json }}</pre>
+      <pre>{{ product.status }}</pre>
+      <pre>{{ product.valid }}</pre>
+    </div>
+  </div>
+
+
   <table class="table table-hover">
     <thead>
     <tr>
@@ -13,15 +50,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{$index+1}}</td>
-      <td>{{ product.PRODUCT_NAME }}</td>
-      <td>{{ product.PRICE }}</td>
-      <td>{{ product.IMAGE_URL }}</td>
-      <td>{{ product.DESCRIPTION }}</td>
+    <tr *ngFor="let product of products; let no = index ">
+      <td>{{ no + 1 }}</td>
+      <td>{{ product.productName }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.imageUrl }}</td>
+      <td>{{ product.description }}</td>
       <td>
-        <button type="button" class="btn btn-warning">Update</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button (click)="showProduct(product)" type="button" class="btn btn-success">View</button>
+        <button (click)="modifyProduct(product)" type="button" class="btn btn-warning">Update</button>
+        <button (click)="deleteProduct(product)" type="button" class="btn btn-danger">Delete</button>
       </td>
     </tr>
     </tbody>

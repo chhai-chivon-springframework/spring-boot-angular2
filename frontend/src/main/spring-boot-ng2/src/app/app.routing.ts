@@ -1,11 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
 // Layouts
-import { FullLayoutComponent } from './layouts/full-layout.component';
-import { SimpleLayoutComponent } from './layouts/simple-layout.component';
-import { UsersComponent } from './users/users.component';
-import { HomeComponent } from './pages/home/home.component';
+import {FullLayoutComponent} from "./layouts/full-layout.component";
+import {SimpleLayoutComponent} from "./layouts/simple-layout.component";
+import {HomeComponent} from "./pages/home/home.component";
 
 export const routes: Routes = [
   {
@@ -14,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'index',
     pathMatch: 'full',
   },
   {
