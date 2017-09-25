@@ -2,6 +2,9 @@ import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 
+
+import { API_END_POINT } from './../../api/api';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public categories;
+  public products;
 
   constructor(private http: Http) {
 
@@ -23,6 +27,13 @@ export class HomeComponent implements OnInit {
 
       console.log(res.DATA);
     });
+
+
+    this.http.get('http://localhost:9000/api/products')
+      .map(res => res.json())
+      .subscribe(res => {
+        this.products = res.DATA
+      })
   }
 
 }
