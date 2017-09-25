@@ -22,7 +22,7 @@ import java.util.*;
 @Table(name = "tb_role")
 public class Role extends BaseEntity {
 
-	@Column(name = "name")
+	@Column
 	private String name;
 /*
 	@ManyToMany

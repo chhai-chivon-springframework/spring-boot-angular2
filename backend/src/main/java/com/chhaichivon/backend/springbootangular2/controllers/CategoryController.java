@@ -1,10 +1,8 @@
 package com.chhaichivon.backend.springbootangular2.controllers;
 
-import com.chhaichivon.backend.springbootangular2.forms.CategoryForm;
 import com.chhaichivon.backend.springbootangular2.models.Category;
 import com.chhaichivon.backend.springbootangular2.services.CategoryService;
 import com.chhaichivon.backend.springbootangular2.utils.BaseController;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,9 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * AUTHOR : CHHAI CHIVON

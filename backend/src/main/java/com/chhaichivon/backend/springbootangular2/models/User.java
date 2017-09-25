@@ -24,20 +24,16 @@ import java.util.Set;
 @Table(name = "tb_user")
 public class User extends BaseEntity{
 
-	@Column(name = "name")
-	@JsonProperty("NAME")
+	@Column
 	private String name;
 
-	@Column(name = "email")
-	@JsonProperty("EMAIL")
+	@Column
 	private String email;
 
-	@Column(name = "password")
-	@JsonProperty("PASSWORD")
+	@Column
 	private String password;
 
-	@Column(name = "mobile")
-	@JsonProperty("MOBILE")
+	@Column
 	private String mobile;
 
 /*

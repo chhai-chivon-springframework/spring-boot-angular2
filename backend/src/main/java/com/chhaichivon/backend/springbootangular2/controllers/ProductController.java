@@ -70,18 +70,24 @@ public class ProductController extends BaseController<Product> {
         return responseJson(product,HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.PUT, headers = "Accept=Application/json")
-    public ResponseEntity<Map<String, Object>> update(@RequestBody Product productUpdate){
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT, headers = "Accept=Application/json")
+    public ResponseEntity<Map<String, Object>> update(@PathVariable("id") Long id, @RequestBody Product newProduct){
         map = new HashMap<>();
+        Product oldProduct = null;
         try {
-            if(productUpdate !=  null){
-                productService.update(productUpdate);
+            oldProduct  = productService.findById(id);
+            if(oldProduct !=  null){
+                oldProduct.setProductName(newProduct.getProductName());
+                oldProduct.setPrice(newProduct.getPrice());
+                oldProduct.setImageUrl(newProduct.getImageUrl());
+                oldProduct.setDescription(newProduct.getDescription());
+                productService.update(oldProduct);
             }
         }catch (Exception e){
             e.printStackTrace();
             System.out.print(e.getMessage());
         }
-        return responseJson(productUpdate,HttpStatus.OK);
+        return responseJson(oldProduct,HttpStatus.OK);
     }
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

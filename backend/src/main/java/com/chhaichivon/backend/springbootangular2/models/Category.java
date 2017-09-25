@@ -1,15 +1,13 @@
 package com.chhaichivon.backend.springbootangular2.models;
 
 import com.chhaichivon.backend.springbootangular2.utils.BaseEntity;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * AUTHOR : CHHAI CHIVON
@@ -22,13 +20,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_category")
-public class Category extends BaseEntity{
+public class Category extends BaseEntity {
 
-    @Column(name = "category_name")
-    @JsonProperty("CATEGORY_NAME")
-    private String categoryName;
+	@Column
+	private String categoryName;
 
-    @Column(name = "description")
-    @JsonProperty("DESCRIPTION")
-    private String description;
+	@Column
+	private String description;
 }

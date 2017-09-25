@@ -22,17 +22,16 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Table(name = "tb_product")
 public class Product extends BaseEntity{
-    @Column(name = "product_name")
-    @JsonProperty("PRODUCT_NAME")
+    @Column
     private String productName;
-    @Column(name = "price")
-    @JsonProperty("PRICE")
+
+    @Column
     private String price;
-    @Column(name = "image_url")
-    @JsonProperty("IMAGE_URL")
+
+    @Column
     private String imageUrl;
-    @Column(name = "description")
-    @JsonProperty("DESCRIPTION")
+
+    @Column
     private String description;
 
 }
